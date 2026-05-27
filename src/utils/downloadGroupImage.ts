@@ -3,15 +3,15 @@ import { ActivityGroup } from "../types";
 export function createGroupsImageDataUrl(groups: ActivityGroup[]) {
   if (groups.length === 0) return "";
 
-  const width = 1400;
   const outerMargin = 24;
-  const framePadding = 24;
+  const framePadding = 40;
   const cardGap = 16;
+  const cardWidth = 700;
+  const width = outerMargin * 2 + framePadding * 2 + cardWidth;
   const contentX = outerMargin + framePadding;
   const titleY = outerMargin + framePadding + 54;
   const subtitleY = titleY + 38;
   const contentTop = subtitleY + 56;
-  const cardWidth = (width - contentX * 2 - cardGap) / 2 + 56;
   const cardX = contentX;
   const cardPadding = 16;
   const cardInnerWidth = cardWidth - cardPadding * 2;

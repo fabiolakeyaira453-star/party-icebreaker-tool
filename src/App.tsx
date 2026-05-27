@@ -49,7 +49,7 @@ function App() {
             </div>
           </div>
 
-          <div className="hidden grid-cols-3 gap-2 rounded-lg bg-slate-100 px-1 py-2 lg:grid">
+          <div className="hidden grid-cols-3 gap-2 rounded-lg bg-slate-100 p-1 lg:grid">
             {tabs.map((tab) => {
               const Icon = tab.icon;
               const active = activeTab === tab.key;
