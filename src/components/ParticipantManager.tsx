@@ -103,7 +103,7 @@ export function ParticipantManager({
     if (!window.confirm("确认清空全部参与者吗？这个操作无法撤销。")) return;
     setParticipants([]);
     setActiveTeam("全部");
-    showToast("已清空名单");
+    showToast("已清空全部");
   }
 
   return (
@@ -140,7 +140,7 @@ export function ParticipantManager({
             onClick={clearAll}
             disabled={participants.length === 0}
           >
-            清空名单
+            清空全部
           </button>
         </div>
 

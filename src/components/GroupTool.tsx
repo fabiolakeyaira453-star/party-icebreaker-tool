@@ -152,6 +152,15 @@ export function GroupTool({ participants, showToast }: GroupToolProps) {
     showToast("活动已删除");
   }
 
+  function clearAllActivities() {
+    if (!window.confirm("确认清空全部活动和已生成分组吗？这个操作无法撤销。")) return;
+    setActivities([]);
+    setGroups([]);
+    setExpandedId(null);
+    setPreviewImage("");
+    showToast("已清空全部");
+  }
+
   function downloadAll() {
     if (groups.length === 0) return;
     const image = createGroupsImageDataUrl(groups);
@@ -303,6 +312,15 @@ export function GroupTool({ participants, showToast }: GroupToolProps) {
         >
           <Shuffle size={17} />
           生成活动分组
+        </button>
+
+        <button
+          className="danger-button mt-4 w-full"
+          type="button"
+          onClick={clearAllActivities}
+          disabled={activities.length === 0 && groups.length === 0}
+        >
+          清空全部
         </button>
       </section>
 
