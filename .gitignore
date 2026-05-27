@@ -1,0 +1,17 @@
+node_modules/
+dist/
+
+.DS_Store
+.vite/
+.vite-cache/
+*.tsbuildinfo
+
+local-test*/
+build/
+icon-exports/
+app-icon-assets.zip
+聚会破冰工具-App.zip
+生成DMG.command
+
+vite.config.js
+vite.config.d.ts
