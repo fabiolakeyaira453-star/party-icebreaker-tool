@@ -168,7 +168,7 @@ export function DrawTool({ participants, setParticipants }: DrawToolProps) {
       </section>
 
       <section className="app-card p-4 sm:p-6">
-        <div className="space-y-4">
+        <div className="space-y-2">
           <div className="grid grid-cols-3 gap-2 rounded-lg bg-slate-100 p-1">
             <ModeButton active={mode === "single"} onClick={() => setMode("single")}>
               单人

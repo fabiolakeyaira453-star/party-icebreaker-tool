@@ -246,7 +246,7 @@ export function GroupTool({ participants, showToast }: GroupToolProps) {
           </button>
         </div>
 
-        <div className="mt-4 space-y-2">
+        <div className="mt-2 space-y-2">
           {activities.length === 0 ? (
             <div className="rounded-lg border border-dashed border-slate-200 bg-slate-50 px-4 py-8 text-center text-sm text-slate-500">
               还没有活动，添加一个或上传表格。
@@ -305,7 +305,7 @@ export function GroupTool({ participants, showToast }: GroupToolProps) {
         </div>
 
         <button
-          className="generate-button mt-4 w-full"
+          className="generate-button mt-2 w-full"
           type="button"
           onClick={() => buildGroups()}
           disabled={participants.length === 0 || validActivityCount === 0}
@@ -315,7 +315,7 @@ export function GroupTool({ participants, showToast }: GroupToolProps) {
         </button>
 
         <button
-          className="danger-button mt-4 w-full"
+          className="danger-button mt-2 w-full"
           type="button"
           onClick={clearAllActivities}
           disabled={activities.length === 0 && groups.length === 0}
