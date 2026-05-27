@@ -5,13 +5,14 @@ export function createGroupsImageDataUrl(groups: ActivityGroup[]) {
 
   const width = 1400;
   const outerMargin = 24;
-  const framePaddingX = 24;
-  const framePaddingY = 32;
+  const framePadding = 24;
   const cardGap = 16;
-  const contentTop = 176;
-  const contentX = outerMargin + framePaddingX;
-  const cardWidth = (width - contentX * 2 - cardGap) / 2;
-  const cardX = Math.round((width - cardWidth) / 2);
+  const contentX = outerMargin + framePadding;
+  const titleY = outerMargin + framePadding + 54;
+  const subtitleY = titleY + 38;
+  const contentTop = subtitleY + 56;
+  const cardWidth = (width - contentX * 2 - cardGap) / 2 + 56;
+  const cardX = contentX;
   const cardPadding = 16;
   const cardInnerWidth = cardWidth - cardPadding * 2;
   const measureCanvas = document.createElement("canvas");
@@ -47,7 +48,7 @@ export function createGroupsImageDataUrl(groups: ActivityGroup[]) {
   const contentHeight =
     cardLayouts.reduce((total, layout) => total + layout.height, 0) +
     Math.max(0, cardLayouts.length - 1) * cardGap;
-  const height = contentTop + contentHeight + framePaddingY + outerMargin;
+  const height = contentTop + contentHeight + framePadding + outerMargin;
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
   if (!context) return "";
@@ -59,28 +60,36 @@ export function createGroupsImageDataUrl(groups: ActivityGroup[]) {
   context.fillStyle = "#f8fafc";
   context.fillRect(0, 0, width, height);
 
-  context.fillStyle = "#0f766e";
-  roundRect(context, outerMargin, outerMargin, width - outerMargin * 2, height - outerMargin * 2, 30);
-  context.fill();
-
   context.fillStyle = "#ffffff";
   roundRect(
     context,
-    outerMargin + 10,
-    outerMargin + 10,
-    width - (outerMargin + 10) * 2,
-    height - (outerMargin + 10) * 2,
+    outerMargin,
+    outerMargin,
+    width - outerMargin * 2,
+    height - outerMargin * 2,
     24,
   );
   context.fill();
 
+  context.strokeStyle = "#0f766e";
+  context.lineWidth = 10;
+  roundRect(
+    context,
+    outerMargin + 5,
+    outerMargin + 5,
+    width - (outerMargin + 5) * 2,
+    height - (outerMargin + 5) * 2,
+    22,
+  );
+  context.stroke();
+
   context.fillStyle = "#0f172a";
   context.font = "800 44px sans-serif";
-  context.fillText("活动分组", contentX, 104);
+  context.fillText("活动分组", contentX, titleY);
 
   context.fillStyle = "#64748b";
   context.font = "400 20px sans-serif";
-  context.fillText(`共 ${groups.length} 组 · 聚会破冰工具`, contentX, 142);
+  context.fillText(`共 ${groups.length} 组 · 聚会破冰工具`, contentX, subtitleY);
 
   let y = contentTop;
   cardLayouts.forEach((layout, index) => {
