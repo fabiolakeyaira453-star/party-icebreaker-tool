@@ -71,18 +71,6 @@ export function createGroupsImageDataUrl(groups: ActivityGroup[]) {
   );
   context.fill();
 
-  context.strokeStyle = "#0f766e";
-  context.lineWidth = 10;
-  roundRect(
-    context,
-    outerMargin + 5,
-    outerMargin + 5,
-    width - (outerMargin + 5) * 2,
-    height - (outerMargin + 5) * 2,
-    22,
-  );
-  context.stroke();
-
   context.fillStyle = "#0f172a";
   context.font = "800 44px sans-serif";
   context.fillText("活动分组", contentX, titleY);

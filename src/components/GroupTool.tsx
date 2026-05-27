@@ -353,7 +353,12 @@ function GroupImagePreview({
               手机端可长按图片，选择保存到照片或添加到照片。
             </p>
           </div>
-          <button className="icon-button" type="button" aria-label="关闭" onClick={onClose}>
+          <button
+            className="flex h-10 w-10 shrink-0 items-center justify-center rounded-lg text-2xl leading-none text-slate-500 transition hover:bg-slate-100 hover:text-slate-900 active:scale-95"
+            type="button"
+            aria-label="关闭"
+            onClick={onClose}
+          >
             ×
           </button>
         </div>
